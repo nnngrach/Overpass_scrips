@@ -15,7 +15,7 @@ out body;>;out skel qt;
 {{style:
 
 /* ========================================== */
-/* Дороги без тегов  */
+/* Дороги без проставленных тегов  */
 /* ========================================== */
 
 way{color:gray; width:3; opacity:1; dashes:0;}
@@ -26,19 +26,32 @@ way{color:gray; width:3; opacity:1; dashes:0;}
 /* Асфальт. Хорошее ровное покрытие */
 /* ========================================== */
 
+/* Обычные */
 way[surface=asphalt]
 {width:4;color:white;dashes:0;}
 
+/* Хорошие */
 way[surface=asphalt][man_made=cutline],
 way[surface=asphalt][width>1]
 {width:10;color:white;dashes:0;}
 
+/* Плохие */
+way[surface=asphalt][smoothness=bad],
+way[surface=asphalt][smoothness=very_bad],
+way[surface=asphalt][smoothness=horrible],
+way[surface=asphalt][smoothness=very_horrible],
+way[surface=asphalt][smoothness=impassable],
+way[surface=asphalt][trail_visibility=bad],
+way[surface=asphalt][trail_visibility=horrible],
+way[surface=asphalt][trail_visibility=no]
+{width:4;color:white;dashes:4,12;}
 
 
 /* ========================================== */
 /* Твердое покрытие, но не такое ровное, как асфальт */
 /* ========================================== */
 
+/* Обычные */
 way[surface=paved],
 way[surface=concrete],
 way[surface=concrete:lanes],
@@ -51,7 +64,7 @@ way[surface=metal],
 way[surface=wood]
 {width:4;color:yellow;dashes:0;}
 
-
+/* Хорошие */
 way[man_made=cutline][surface=paved],
 way[man_made=cutline][surface=concrete],
 way[man_made=cutline][surface=concrete:lanes],
@@ -76,11 +89,104 @@ way[surface=wood]
 {width:10;color:yellow;dashes:0;}
 
 
+/* Плохие */
+way[surface=paved][smoothness=bad],
+way[surface=paved][smoothness=very_bad],
+way[surface=paved][smoothness=horrible],
+way[surface=paved][smoothness=very_horrible],
+way[surface=paved][smoothness=impassable],
+way[surface=paved][trail_visibility=bad],
+way[surface=paved][trail_visibility=horrible],
+way[surface=paved][trail_visibility=no],
+
+way[surface=concrete][smoothness=bad],
+way[surface=concrete][smoothness=very_bad],
+way[surface=concrete][smoothness=horrible],
+way[surface=concrete][smoothness=very_horrible],
+way[surface=concrete][smoothness=impassable],
+way[surface=concrete][trail_visibility=bad],
+way[surface=concrete][trail_visibility=horrible],
+way[surface=concrete][trail_visibility=no],
+
+way[surface=concrete:lanes][smoothness=bad],
+way[surface=concrete:lanes][smoothness=very_bad],
+way[surface=concrete:lanes][smoothness=horrible],
+way[surface=concrete:lanes][smoothness=very_horrible],
+way[surface=concrete:lanes][smoothness=impassable],
+way[surface=concrete:lanes][trail_visibility=bad],
+way[surface=concrete:lanes][trail_visibility=horrible],
+way[surface=concrete:lanes][trail_visibility=no],
+
+way[surface=concrete:plates][smoothness=bad],
+way[surface=concrete:plates][smoothness=very_bad],
+way[surface=concrete:plates][smoothness=horrible],
+way[surface=concrete:plates][smoothness=very_horrible],
+way[surface=concrete:plates][smoothness=impassable],
+way[surface=concrete:plates][trail_visibility=bad],
+way[surface=concrete:plates][trail_visibility=horrible],
+way[surface=concrete:plates][trail_visibility=no],
+
+way[surface=paving_stones][smoothness=bad],
+way[surface=paving_stones][smoothness=very_bad],
+way[surface=paving_stones][smoothness=horrible],
+way[surface=paving_stones][smoothness=very_horrible],
+way[surface=paving_stones][smoothness=impassable],
+way[surface=paving_stones][trail_visibility=bad],
+way[surface=paving_stones][trail_visibility=horrible],
+way[surface=paving_stones][trail_visibility=no],
+
+way[surface=sett][smoothness=bad],
+way[surface=sett][smoothness=very_bad],
+way[surface=sett][smoothness=horrible],
+way[surface=sett][smoothness=very_horrible],
+way[surface=sett][smoothness=impassable],
+way[surface=sett][trail_visibility=bad],
+way[surface=sett][trail_visibility=horrible],
+way[surface=sett][trail_visibility=no],
+
+way[surface=unhewn_cobblestone][smoothness=bad],
+way[surface=unhewn_cobblestone][smoothness=very_bad],
+way[surface=unhewn_cobblestone][smoothness=horrible],
+way[surface=unhewn_cobblestone][smoothness=very_horrible],
+way[surface=unhewn_cobblestone][smoothness=impassable],
+way[surface=unhewn_cobblestone][trail_visibility=bad],
+way[surface=unhewn_cobblestone][trail_visibility=horrible],
+way[surface=unhewn_cobblestone][trail_visibility=no],
+
+way[surface=cobblestone][smoothness=bad],
+way[surface=cobblestone][smoothness=very_bad],
+way[surface=cobblestone][smoothness=horrible],
+way[surface=cobblestone][smoothness=very_horrible],
+way[surface=cobblestone][smoothness=impassable],
+way[surface=cobblestone][trail_visibility=bad],
+way[surface=cobblestone][trail_visibility=horrible],
+way[surface=cobblestone][trail_visibility=no],
+
+way[surface=metal][smoothness=bad],
+way[surface=metal][smoothness=very_bad],
+way[surface=metal][smoothness=horrible],
+way[surface=metal][smoothness=very_horrible],
+way[surface=metal][smoothness=impassable],
+way[surface=metal][trail_visibility=bad],
+way[surface=metal][trail_visibility=horrible],
+way[surface=metal][trail_visibility=no],
+
+way[surface=wood][smoothness=bad],
+way[surface=wood][smoothness=very_bad],
+way[surface=wood][smoothness=horrible],
+way[surface=wood][smoothness=very_horrible],
+way[surface=wood][smoothness=impassable],
+way[surface=wood][trail_visibility=bad],
+way[surface=wood][trail_visibility=horrible],
+way[surface=wood][trail_visibility=no]
+{width:4;color:yellow;dashes:4,12;}
+
 
 /* ========================================== */
 /* Ухоженные гравийные тропы */
 /* ========================================== */
 
+/* Обычные */
 way[surface=compacted],
 way[surface=fine_gravel],
 way[surface=clay],
@@ -89,7 +195,7 @@ way[surface=artificial_turf],
 way[surface=decoturf]
 {width:4;color:red;dashes:0;}
 
-
+/* Хорошие */
 way[surface=compacted][man_made=cutline],
 way[surface=fine_gravel][man_made=cutline],
 way[surface=clay][man_made=cutline],
@@ -105,13 +211,71 @@ way[surface=artificial_turf][width>1],
 way[surface=decoturf][width>1]
 {width:10;color:red;dashes:0;}
 
-/* way[highway][width][width!=1]["width"!~"^0."]["width"!~"^1."]; */
+
+/* Плохие */
+way[surface=compacted][smoothness=bad],
+way[surface=compacted][smoothness=very_bad],
+way[surface=compacted][smoothness=horrible],
+way[surface=compacted][smoothness=very_horrible],
+way[surface=compacted][smoothness=impassable],
+way[surface=compacted][trail_visibility=bad],
+way[surface=compacted][trail_visibility=horrible],
+way[surface=compacted][trail_visibility=no],
+
+way[surface=fine_gravel][smoothness=bad],
+way[surface=fine_gravel][smoothness=very_bad],
+way[surface=fine_gravel][smoothness=horrible],
+way[surface=fine_gravel][smoothness=very_horrible],
+way[surface=fine_gravel][smoothness=impassable],
+way[surface=fine_gravel][trail_visibility=bad],
+way[surface=fine_gravel][trail_visibility=horrible],
+way[surface=fine_gravel][trail_visibility=no],
+
+way[surface=clay][smoothness=bad],
+way[surface=clay][smoothness=very_bad],
+way[surface=clay][smoothness=horrible],
+way[surface=clay][smoothness=very_horrible],
+way[surface=clay][smoothness=impassable],
+way[surface=clay][trail_visibility=bad],
+way[surface=clay][trail_visibility=horrible],
+way[surface=clay][trail_visibility=no],
+
+way[surface=tartan][smoothness=bad],
+way[surface=tartan][smoothness=very_bad],
+way[surface=tartan][smoothness=horrible],
+way[surface=tartan][smoothness=very_horrible],
+way[surface=tartan][smoothness=impassable],
+way[surface=tartan][trail_visibility=bad],
+way[surface=tartan][trail_visibility=horrible],
+way[surface=tartan][trail_visibility=no],
+
+way[surface=decoturf][smoothness=bad],
+way[surface=decoturf][smoothness=very_bad],
+way[surface=decoturf][smoothness=horrible],
+way[surface=decoturf][smoothness=very_horrible],
+way[surface=decoturf][smoothness=impassable],
+way[surface=decoturf][trail_visibility=bad],
+way[surface=decoturf][trail_visibility=horrible],
+way[surface=decoturf][trail_visibility=no],
+
+way[surface=artificial_turf][smoothness=bad],
+way[surface=artificial_turf][smoothness=very_bad],
+way[surface=artificial_turf][smoothness=horrible],
+way[surface=artificial_turf][smoothness=very_horrible],
+way[surface=artificial_turf][smoothness=impassable],
+way[surface=artificial_turf][trail_visibility=bad],
+way[surface=artificial_turf][trail_visibility=horrible],
+way[surface=artificial_turf][trail_visibility=no]
+{width:4;color:red;dashes:4,12;}
+
 
 
 /* ========================================== */
 /* Неухоженные гравийные тропы */
 /* ========================================== */
 
+
+/* Обычные */
 way[surface=gravel],
 way[surface=pebblestone],
 way[surface=grass_paver],
@@ -119,7 +283,7 @@ way[surface=gravel_turf],
 way[surface=woodchips]
 {width:4;color:orange;dashes:0;}
 
-
+/* Хорошие */
 way[man_made=cutline][surface=gravel],
 way[man_made=cutline][surface=pebblestone],
 way[man_made=cutline][surface=grass_paver],
@@ -132,6 +296,54 @@ way[surface=grass_paver][width>1],
 way[surface=gravel_turf][width>1],
 way[surface=woodchips][width>1]
 {width:10;color:orange;dashes:0;}
+
+/* Плохие */
+way[surface=gravel][smoothness=bad],
+way[surface=gravel][smoothness=very_bad],
+way[surface=gravel][smoothness=horrible],
+way[surface=gravel][smoothness=very_horrible],
+way[surface=gravel][smoothness=impassable],
+way[surface=gravel][trail_visibility=bad],
+way[surface=gravel][trail_visibility=horrible],
+way[surface=gravel][trail_visibility=no],
+
+way[surface=pebblestone][smoothness=bad],
+way[surface=pebblestone][smoothness=very_bad],
+way[surface=pebblestone][smoothness=horrible],
+way[surface=pebblestone][smoothness=very_horrible],
+way[surface=pebblestone][smoothness=impassable],
+way[surface=pebblestone][trail_visibility=bad],
+way[surface=pebblestone][trail_visibility=horrible],
+way[surface=pebblestone][trail_visibility=no],
+
+way[surface=grass_paver][smoothness=bad],
+way[surface=grass_paver][smoothness=very_bad],
+way[surface=grass_paver][smoothness=horrible],
+way[surface=grass_paver][smoothness=very_horrible],
+way[surface=grass_paver][smoothness=impassable],
+way[surface=grass_paver][trail_visibility=bad],
+way[surface=grass_paver][trail_visibility=horrible],
+way[surface=grass_paver][trail_visibility=no],
+
+way[surface=woodchips][smoothness=bad],
+way[surface=woodchips][smoothness=very_bad],
+way[surface=woodchips][smoothness=horrible],
+way[surface=woodchips][smoothness=very_horrible],
+way[surface=woodchips][smoothness=impassable],
+way[surface=woodchips][trail_visibility=bad],
+way[surface=woodchips][trail_visibility=horrible],
+way[surface=woodchips][trail_visibility=no],
+
+way[surface=gravel_turf][smoothness=bad],
+way[surface=gravel_turf][smoothness=very_bad],
+way[surface=gravel_turf][smoothness=horrible],
+way[surface=gravel_turf][smoothness=very_horrible],
+way[surface=gravel_turf][smoothness=impassable],
+way[surface=gravel_turf][trail_visibility=bad],
+way[surface=gravel_turf][trail_visibility=horrible],
+way[surface=gravel_turf][trail_visibility=no]
+{width:4;color:orange;dashes:4,12;}
+
 
 
 
@@ -175,67 +387,60 @@ way[surface=unpaved][smoothness=very_bad],
 way[surface=unpaved][smoothness=horrible],
 way[surface=unpaved][smoothness=very_horrible],
 way[surface=unpaved][smoothness=impassable],
+way[surface=unpaved][trail_visibility=bad],
+way[surface=unpaved][trail_visibility=horrible],
+way[surface=unpaved][trail_visibility=no],
 
 way[surface=ground][smoothness=bad],
 way[surface=ground][smoothness=very_bad],
 way[surface=ground][smoothness=horrible],
 way[surface=ground][smoothness=very_horrible],
 way[surface=ground][smoothness=impassable],
+way[surface=ground][trail_visibility=bad],
+way[surface=ground][trail_visibility=horrible],
+way[surface=ground][trail_visibility=no],
 
 way[surface=earth][smoothness=bad],
 way[surface=earth][smoothness=very_bad],
 way[surface=earth][smoothness=horrible],
 way[surface=earth][smoothness=very_horrible],
 way[surface=earth][smoothness=impassable],
+way[surface=earth][trail_visibility=bad],
+way[surface=earth][trail_visibility=horrible],
+way[surface=earth][trail_visibility=no],
 
 way[surface=sand][smoothness=bad],
 way[surface=sand][smoothness=very_bad],
 way[surface=sand][smoothness=horrible],
 way[surface=sand][smoothness=very_horrible],
 way[surface=sand][smoothness=impassable],
+way[surface=sand][trail_visibility=bad],
+way[surface=sand][trail_visibility=horrible],
+way[surface=sand][trail_visibility=no],
 
 way[surface=snow][smoothness=bad],
 way[surface=snow][smoothness=very_bad],
 way[surface=snow][smoothness=horrible],
 way[surface=snow][smoothness=very_horrible],
 way[surface=snow][smoothness=impassable],
+way[surface=snow][trail_visibility=bad],
+way[surface=snow][trail_visibility=horrible],
+way[surface=snow][trail_visibility=no],
 
 way[surface=ice][smoothness=bad],
 way[surface=ice][smoothness=very_bad],
 way[surface=ice][smoothness=horrible],
 way[surface=ice][smoothness=very_horrible],
 way[surface=ice][smoothness=impassable],
+way[surface=ice][trail_visibility=bad],
+way[surface=ice][trail_visibility=horrible],
+way[surface=ice][trail_visibility=no],
 
 way[surface=salt][smoothness=bad],
 way[surface=salt][smoothness=very_bad],
 way[surface=salt][smoothness=horrible],
 way[surface=salt][smoothness=very_horrible],
 way[surface=salt][smoothness=impassable],
-
-way[surface=unpaved][trail_visibility=bad],
-way[surface=unpaved][trail_visibility=horrible],
-way[surface=unpaved][trail_visibility=no],
-
-way[surface=ground][trail_visibility=bad],
-way[surface=ground][trail_visibility=horrible],
-way[surface=ground][trail_visibility=no],
-
-way[surface=earth][trail_visibility=bad],
-way[surface=earth][trail_visibility=horrible],
-way[surface=earth][trail_visibility=no],
-
-way[surface=sand][trail_visibility=bad],
-way[surface=sand][trail_visibility=horrible],
-way[surface=sand][trail_visibility=no],
-
-way[surface=snow][trail_visibility=bad],
-way[surface=snow][trail_visibility=horrible],
-way[surface=snow][trail_visibility=no],
-
-way[surface=ice][trail_visibility=bad],
-way[surface=ice][trail_visibility=horrible],
-way[surface=ice][trail_visibility=no],
-
 way[surface=salt][trail_visibility=bad],
 way[surface=salt][trail_visibility=horrible],
 way[surface=salt][trail_visibility=no]
@@ -249,37 +454,36 @@ way[surface=salt][trail_visibility=no]
 /* Грязь */
 /* ========================================== */
 
-
+/* Обычные */
 way[surface=dirt],
 way[surface=mud]
 {width:4;color:green;dashes:0;}
 
 
+/* Хорошие */
 way[surface=dirt][man_made=cutline],
-way[surface=mud][man_made=cutline],
-
 way[surface=dirt][man_made=cutline][width>1],
+
+way[surface=mud][man_made=cutline],
 way[surface=mud][man_made=cutline][width>1]
 {width:10;color:green;dashes:0;}
 
 
-
+/* Плохие */
 way[surface=dirt][smoothness=bad],
 way[surface=dirt][smoothness=very_bad],
 way[surface=dirt][smoothness=horrible],
 way[surface=dirt][smoothness=very_horrible],
 way[surface=dirt][smoothness=impassable],
+way[surface=dirt][trail_visibility=bad],
+way[surface=dirt][trail_visibility=horrible],
+way[surface=dirt][trail_visibility=no],
 
 way[surface=mud][smoothness=bad],
 way[surface=mud][smoothness=very_bad],
 way[surface=mud][smoothness=horrible],
 way[surface=mud][smoothness=very_horrible],
 way[surface=mud][smoothness=impassable],
-
-way[surface=dirt][trail_visibility=bad],
-way[surface=dirt][trail_visibility=horrible],
-way[surface=dirt][trail_visibility=no],
-
 way[surface=mud][trail_visibility=bad],
 way[surface=mud][trail_visibility=horrible],
 way[surface=mud][trail_visibility=no]
