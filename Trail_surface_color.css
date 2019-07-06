@@ -1,0 +1,288 @@
+[bbox:{{bbox}}];
+
+( 
+  
+  way[highway];
+    //way[highway~"^(unclassified|service|track|residential|living_street|pedestrian|cycleway|bridleway|footway|path|steps)"];
+  
+);
+out body;>;out skel qt;
+
+
+
+
+
+{{style:
+
+/* ========================================== */
+/* Дороги без тегов  */
+/* ========================================== */
+
+way{color:gray; width:3; opacity:1; dashes:0;}
+
+
+
+/* ========================================== */
+/* Асфальт. Хорошее ровное покрытие */
+/* ========================================== */
+
+way[surface=asphalt]
+{width:4;color:white;dashes:0;}
+
+way[surface=asphalt][man_made=cutline],
+way[surface=asphalt][width>1]
+{width:10;color:white;dashes:0;}
+
+
+
+/* ========================================== */
+/* Твердое покрытие, но не такое ровное, как асфальт */
+/* ========================================== */
+
+way[surface=paved],
+way[surface=concrete],
+way[surface=concrete:lanes],
+way[surface=concrete:plates],
+way[surface=paving_stones],
+way[surface=sett],
+way[surface=unhewn_cobblestone],
+way[surface=cobblestone],
+way[surface=metal],
+way[surface=wood]
+{width:4;color:yellow;dashes:0;}
+
+
+way[man_made=cutline][surface=paved],
+way[man_made=cutline][surface=concrete],
+way[man_made=cutline][surface=concrete:lanes],
+way[man_made=cutline][surface=concrete:plates],
+way[man_made=cutline][surface=paving_stones],
+way[man_made=cutline][surface=sett],
+way[man_made=cutline][surface=unhewn_cobblestone],
+way[man_made=cutline][surface=cobblestone],
+way[man_made=cutline][surface=metal],
+way[man_made=cutline][surface=wood],
+
+way[surface=paved][width>1],
+way[surface=concrete][width>1],
+way[surface=concrete:lanes][width>1],
+way[surface=concrete:plates][width>1],
+way[surface=paving_stones][width>1],
+way[surface=sett][width>1],
+way[surface=unhewn_cobblestone][width>1],
+way[surface=cobblestone][width>1],
+way[surface=metal][width>1],
+way[surface=wood]
+{width:10;color:yellow;dashes:0;}
+
+
+
+/* ========================================== */
+/* Ухоженные гравийные тропы */
+/* ========================================== */
+
+way[surface=compacted],
+way[surface=fine_gravel],
+way[surface=clay],
+way[surface=tartan],
+way[surface=artificial_turf],
+way[surface=decoturf]
+{width:4;color:red;dashes:0;}
+
+
+way[surface=compacted][man_made=cutline],
+way[surface=fine_gravel][man_made=cutline],
+way[surface=clay][man_made=cutline],
+way[surface=tartan][man_made=cutline],
+way[surface=artificial_turf][man_made=cutline],
+way[surface=decoturf][man_made=cutline],
+
+way[surface=compacted][width>1],
+way[surface=fine_gravel][width>1],
+way[surface=clay][width>1],
+way[surface=tartan][width>1],
+way[surface=artificial_turf][width>1],
+way[surface=decoturf][width>1]
+{width:10;color:red;dashes:0;}
+
+/* way[highway][width][width!=1]["width"!~"^0."]["width"!~"^1."]; */
+
+
+/* ========================================== */
+/* Неухоженные гравийные тропы */
+/* ========================================== */
+
+way[surface=gravel],
+way[surface=pebblestone],
+way[surface=grass_paver],
+way[surface=gravel_turf],
+way[surface=woodchips]
+{width:4;color:orange;dashes:0;}
+
+
+way[man_made=cutline][surface=gravel],
+way[man_made=cutline][surface=pebblestone],
+way[man_made=cutline][surface=grass_paver],
+way[man_made=cutline][surface=gravel_turf],
+way[man_made=cutline][surface=woodchips],
+
+way[surface=gravel][width>1],
+way[surface=pebblestone][width>1],
+way[surface=grass_paver][width>1],
+way[surface=gravel_turf][width>1],
+way[surface=woodchips][width>1]
+{width:10;color:orange;dashes:0;}
+
+
+
+/* ========================================== */
+/* Тропы без специального покрытия */
+/* ========================================== */
+
+/* Обычные */
+way[surface=unpaved],
+way[surface=ground],
+way[surface=earth],
+way[surface=sand],
+way[surface=snow],
+way[surface=ice],
+way[surface=salt]
+{width:4;color:black;dashes:0;}
+
+
+/* Хорошие */
+way[man_made=cutline][surface=unpaved],
+way[man_made=cutline][surface=ground],
+way[man_made=cutline][surface=earth],
+way[man_made=cutline][surface=sand],
+way[man_made=cutline][surface=snow],
+way[man_made=cutline][surface=ice],
+way[man_made=cutline][surface=salt],
+
+way[surface=unpaved][width>1],
+way[surface=ground][width>1],
+way[surface=earth][width>1],
+way[surface=sand][width>1],
+way[surface=snow][width>1],
+way[surface=ice][width>1],
+way[surface=salt][width>1]
+{width:10;color:black;dashes:0;}
+
+
+/* Плохие */
+way[surface=unpaved][smoothness=bad],
+way[surface=unpaved][smoothness=very_bad],
+way[surface=unpaved][smoothness=horrible],
+way[surface=unpaved][smoothness=very_horrible],
+way[surface=unpaved][smoothness=impassable],
+
+way[surface=ground][smoothness=bad],
+way[surface=ground][smoothness=very_bad],
+way[surface=ground][smoothness=horrible],
+way[surface=ground][smoothness=very_horrible],
+way[surface=ground][smoothness=impassable],
+
+way[surface=earth][smoothness=bad],
+way[surface=earth][smoothness=very_bad],
+way[surface=earth][smoothness=horrible],
+way[surface=earth][smoothness=very_horrible],
+way[surface=earth][smoothness=impassable],
+
+way[surface=sand][smoothness=bad],
+way[surface=sand][smoothness=very_bad],
+way[surface=sand][smoothness=horrible],
+way[surface=sand][smoothness=very_horrible],
+way[surface=sand][smoothness=impassable],
+
+way[surface=snow][smoothness=bad],
+way[surface=snow][smoothness=very_bad],
+way[surface=snow][smoothness=horrible],
+way[surface=snow][smoothness=very_horrible],
+way[surface=snow][smoothness=impassable],
+
+way[surface=ice][smoothness=bad],
+way[surface=ice][smoothness=very_bad],
+way[surface=ice][smoothness=horrible],
+way[surface=ice][smoothness=very_horrible],
+way[surface=ice][smoothness=impassable],
+
+way[surface=salt][smoothness=bad],
+way[surface=salt][smoothness=very_bad],
+way[surface=salt][smoothness=horrible],
+way[surface=salt][smoothness=very_horrible],
+way[surface=salt][smoothness=impassable],
+
+way[surface=unpaved][trail_visibility=bad],
+way[surface=unpaved][trail_visibility=horrible],
+way[surface=unpaved][trail_visibility=no],
+
+way[surface=ground][trail_visibility=bad],
+way[surface=ground][trail_visibility=horrible],
+way[surface=ground][trail_visibility=no],
+
+way[surface=earth][trail_visibility=bad],
+way[surface=earth][trail_visibility=horrible],
+way[surface=earth][trail_visibility=no],
+
+way[surface=sand][trail_visibility=bad],
+way[surface=sand][trail_visibility=horrible],
+way[surface=sand][trail_visibility=no],
+
+way[surface=snow][trail_visibility=bad],
+way[surface=snow][trail_visibility=horrible],
+way[surface=snow][trail_visibility=no],
+
+way[surface=ice][trail_visibility=bad],
+way[surface=ice][trail_visibility=horrible],
+way[surface=ice][trail_visibility=no],
+
+way[surface=salt][trail_visibility=bad],
+way[surface=salt][trail_visibility=horrible],
+way[surface=salt][trail_visibility=no]
+
+{width:4;color:black;dashes:4,12;}
+
+
+
+
+/* ========================================== */
+/* Грязь */
+/* ========================================== */
+
+
+way[surface=dirt],
+way[surface=mud]
+{width:4;color:green;dashes:0;}
+
+
+way[surface=dirt][man_made=cutline],
+way[surface=mud][man_made=cutline],
+
+way[surface=dirt][man_made=cutline][width>1],
+way[surface=mud][man_made=cutline][width>1]
+{width:10;color:green;dashes:0;}
+
+
+
+way[surface=dirt][smoothness=bad],
+way[surface=dirt][smoothness=very_bad],
+way[surface=dirt][smoothness=horrible],
+way[surface=dirt][smoothness=very_horrible],
+way[surface=dirt][smoothness=impassable],
+
+way[surface=mud][smoothness=bad],
+way[surface=mud][smoothness=very_bad],
+way[surface=mud][smoothness=horrible],
+way[surface=mud][smoothness=very_horrible],
+way[surface=mud][smoothness=impassable],
+
+way[surface=dirt][trail_visibility=bad],
+way[surface=dirt][trail_visibility=horrible],
+way[surface=dirt][trail_visibility=no],
+
+way[surface=mud][trail_visibility=bad],
+way[surface=mud][trail_visibility=horrible],
+way[surface=mud][trail_visibility=no]
+{width:4;color:green;dashes:4,12;}
+
+}}
