@@ -1,0 +1,23 @@
+[bbox:{{bbox}}];
+
+(
+  node[amenity=waste_basket];
+  node[amenity=recycling];
+  node[amenity=waste_disposal];
+);
+
+out;>;out skel qt;
+
+
+{{style:
+  node {
+    icon-image: url('icons/maki/waste-basket-18.png');
+    icon-width: 18;
+  }
+  
+  node[amenity=waste_disposal], 
+  node[amenity=recycling] {
+    icon-image: url('icons/maki/waste-basket-24.png');
+    icon-width: 24;
+  }
+}}
