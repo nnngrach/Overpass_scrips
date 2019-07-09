@@ -18,7 +18,8 @@ out body;>;out skel qt;
 /* Дороги без проставленных тегов  */
 /* ========================================== */
 
-way{color:gray; width:3; opacity:1; dashes:0;}
+way{color:black; width:3; opacity:1; dashes:0;}
+way[incline]{color:#b24056; width:3; opacity:1; dashes:0;}
 
 
 
@@ -33,7 +34,7 @@ way[surface=asphalt]
 /* Хорошие */
 way[surface=asphalt][man_made=cutline],
 way[surface=asphalt][width>1]
-{width:10;color:white;dashes:0;}
+{width:8;color:white;dashes:0;}
 
 /* Плохие */
 way[surface=asphalt][smoothness=bad],
@@ -45,6 +46,10 @@ way[surface=asphalt][trail_visibility=bad],
 way[surface=asphalt][trail_visibility=horrible],
 way[surface=asphalt][trail_visibility=no]
 {width:4;color:white;dashes:4,12;}
+
+/* С наклоном */
+way[surface=asphalt][incline]
+{width:4;color:#eec6fa;dashes:0;}
 
 
 /* ========================================== */
@@ -60,9 +65,8 @@ way[surface=paving_stones],
 way[surface=sett],
 way[surface=unhewn_cobblestone],
 way[surface=cobblestone],
-way[surface=metal],
-way[surface=wood]
-{width:4;color:yellow;dashes:0;}
+way[surface=metal]
+{width:4;color:#8b8b8b;dashes:0;}
 
 /* Хорошие */
 way[man_made=cutline][surface=paved],
@@ -84,9 +88,8 @@ way[surface=paving_stones][width>1],
 way[surface=sett][width>1],
 way[surface=unhewn_cobblestone][width>1],
 way[surface=cobblestone][width>1],
-way[surface=metal][width>1],
-way[surface=wood]
-{width:10;color:yellow;dashes:0;}
+way[surface=metal][width>1]
+{width:6;color:#8b8b8b;dashes:0;}
 
 
 /* Плохие */
@@ -169,17 +172,24 @@ way[surface=metal][smoothness=very_horrible],
 way[surface=metal][smoothness=impassable],
 way[surface=metal][trail_visibility=bad],
 way[surface=metal][trail_visibility=horrible],
-way[surface=metal][trail_visibility=no],
+way[surface=metal][trail_visibility=no]
+{width:4;color:#8b8b8b;dashes:4,12;}
 
-way[surface=wood][smoothness=bad],
-way[surface=wood][smoothness=very_bad],
-way[surface=wood][smoothness=horrible],
-way[surface=wood][smoothness=very_horrible],
-way[surface=wood][smoothness=impassable],
-way[surface=wood][trail_visibility=bad],
-way[surface=wood][trail_visibility=horrible],
-way[surface=wood][trail_visibility=no]
-{width:4;color:yellow;dashes:4,12;}
+/* С наклоном */
+way[surface=paved][incline],
+way[surface=concrete][incline],
+way[surface=concrete:lanes][incline],
+way[surface=concrete:plates][incline],
+way[surface=paving_stones][incline],
+way[surface=sett][incline],
+way[surface=unhewn_cobblestone][incline],
+way[surface=cobblestone][incline],
+way[surface=metal][incline]
+{width:4;color:#eec6fa;dashes:0;}
+
+
+
+
 
 
 /* ========================================== */
@@ -193,7 +203,7 @@ way[surface=clay],
 way[surface=tartan],
 way[surface=artificial_turf],
 way[surface=decoturf]
-{width:4;color:red;dashes:0;}
+{width:4;color:#fffa71;dashes:0;}
 
 /* Хорошие */
 way[surface=compacted][man_made=cutline],
@@ -209,7 +219,7 @@ way[surface=clay][width>1],
 way[surface=tartan][width>1],
 way[surface=artificial_turf][width>1],
 way[surface=decoturf][width>1]
-{width:10;color:red;dashes:0;}
+{width:8;color:#fffa71;dashes:0;}
 
 
 /* Плохие */
@@ -266,7 +276,20 @@ way[surface=artificial_turf][smoothness=impassable],
 way[surface=artificial_turf][trail_visibility=bad],
 way[surface=artificial_turf][trail_visibility=horrible],
 way[surface=artificial_turf][trail_visibility=no]
-{width:4;color:red;dashes:4,12;}
+{width:4;color:#fffa71;dashes:4,12;}
+
+/* С наклоном */
+way[surface=compacted][incline],
+way[surface=fine_gravel][incline],
+way[surface=clay][incline],
+way[surface=tartan][incline],
+way[surface=artificial_turf][incline],
+way[surface=decoturf][incline]
+{width:4;color:#e98fa0;dashes:0;}
+
+
+
+
 
 
 
@@ -280,8 +303,9 @@ way[surface=gravel],
 way[surface=pebblestone],
 way[surface=grass_paver],
 way[surface=gravel_turf],
-way[surface=woodchips]
-{width:4;color:orange;dashes:0;}
+way[surface=woodchips],
+way[surface=wood]
+{width:4;color:#f4664e;dashes:0;}
 
 /* Хорошие */
 way[man_made=cutline][surface=gravel],
@@ -289,13 +313,15 @@ way[man_made=cutline][surface=pebblestone],
 way[man_made=cutline][surface=grass_paver],
 way[man_made=cutline][surface=gravel_turf],
 way[man_made=cutline][surface=woodchips],
+way[man_made=cutline][surface=wood],
 
 way[surface=gravel][width>1],
 way[surface=pebblestone][width>1],
 way[surface=grass_paver][width>1],
 way[surface=gravel_turf][width>1],
-way[surface=woodchips][width>1]
-{width:10;color:orange;dashes:0;}
+way[surface=woodchips][width>1],
+way[surface=wood][width>1]
+{width:8;color:#f4664e;dashes:0;}
 
 /* Плохие */
 way[surface=gravel][smoothness=bad],
@@ -334,6 +360,15 @@ way[surface=woodchips][trail_visibility=bad],
 way[surface=woodchips][trail_visibility=horrible],
 way[surface=woodchips][trail_visibility=no],
 
+way[surface=wood][smoothness=bad],
+way[surface=wood][smoothness=very_bad],
+way[surface=wood][smoothness=horrible],
+way[surface=wood][smoothness=very_horrible],
+way[surface=wood][smoothness=impassable],
+way[surface=wood][trail_visibility=bad],
+way[surface=wood][trail_visibility=horrible],
+way[surface=wood][trail_visibility=no],
+
 way[surface=gravel_turf][smoothness=bad],
 way[surface=gravel_turf][smoothness=very_bad],
 way[surface=gravel_turf][smoothness=horrible],
@@ -342,7 +377,16 @@ way[surface=gravel_turf][smoothness=impassable],
 way[surface=gravel_turf][trail_visibility=bad],
 way[surface=gravel_turf][trail_visibility=horrible],
 way[surface=gravel_turf][trail_visibility=no]
-{width:4;color:orange;dashes:4,12;}
+{width:4;color:#f4664e;dashes:4,12;}
+
+/* С наклоном */
+way[surface=gravel][incline],
+way[surface=pebblestone][incline],
+way[surface=grass_paver][incline],
+way[surface=gravel_turf][incline],
+way[surface=woodchips][incline],
+way[surface=wood][incline]
+{width:4;color:#e98fa0;dashes:0;}
 
 
 
@@ -359,7 +403,7 @@ way[surface=sand],
 way[surface=snow],
 way[surface=ice],
 way[surface=salt]
-{width:4;color:black;dashes:0;}
+{width:3;color:#544529;dashes:0;}
 
 
 /* Хорошие */
@@ -378,7 +422,7 @@ way[surface=sand][width>1],
 way[surface=snow][width>1],
 way[surface=ice][width>1],
 way[surface=salt][width>1]
-{width:10;color:black;dashes:0;}
+{width:6;color:#544529;dashes:0;}
 
 
 /* Плохие */
@@ -444,8 +488,17 @@ way[surface=salt][smoothness=impassable],
 way[surface=salt][trail_visibility=bad],
 way[surface=salt][trail_visibility=horrible],
 way[surface=salt][trail_visibility=no]
+{width:3;color:#544529;dashes:4,12;}
 
-{width:4;color:black;dashes:4,12;}
+/* С наклоном */
+way[surface=unpaved][incline],
+way[surface=ground][incline],
+way[surface=earth][incline],
+way[surface=sand][incline],
+way[surface=snow][incline],
+way[surface=ice][incline],
+way[surface=salt][incline]
+{width:4;color:#b24056;dashes:0;}
 
 
 
@@ -457,7 +510,7 @@ way[surface=salt][trail_visibility=no]
 /* Обычные */
 way[surface=dirt],
 way[surface=mud]
-{width:4;color:green;dashes:0;}
+{width:3;color:#1c7f39;dashes:0;}
 
 
 /* Хорошие */
@@ -466,7 +519,7 @@ way[surface=dirt][man_made=cutline][width>1],
 
 way[surface=mud][man_made=cutline],
 way[surface=mud][man_made=cutline][width>1]
-{width:10;color:green;dashes:0;}
+{width:6;color:#1c7f39;dashes:0;}
 
 
 /* Плохие */
@@ -487,6 +540,24 @@ way[surface=mud][smoothness=impassable],
 way[surface=mud][trail_visibility=bad],
 way[surface=mud][trail_visibility=horrible],
 way[surface=mud][trail_visibility=no]
-{width:4;color:green;dashes:4,12;}
+{width:3;color:#1c7f39;dashes:4,12;}
+
+/* С наклоном */
+way[surface=dirt][incline],
+way[surface=mud][incline]
+{width:4;color:#b24056;dashes:0;}
+
+
+
+
+
+
+/* ========================================== */
+/* Свойства по умолчанию для мелких объектов (точек) */
+/* ========================================== */
+node {
+  opacity:0;
+  fill-opacity:0;
+}
 
 }}
