@@ -18,8 +18,35 @@ out body;>;out skel qt;
 /* Дороги без проставленных тегов  */
 /* ========================================== */
 
-way{color:black; width:3; opacity:1; dashes:0;}
-way[incline]{color:#b24056; width:3; opacity:1; dashes:0;}
+/* Обычные */
+way
+{color:black; width:3; opacity:1; dashes:0;}
+
+/* Хорошие */
+way[surface=asphalt][man_made=cutline],
+way[surface=asphalt][width>1]
+{width:6;color:black;dashes:0;}
+
+/* Плохие */
+way[smoothness=bad],
+way[smoothness=very_bad],
+way[smoothness=horrible],
+way[smoothness=very_horrible],
+way[smoothness=impassable],
+way[trail_visibility=bad],
+way[trail_visibility=horrible],
+way[trail_visibility=no],
+way[tracktype=grade4],
+way[tracktype=grade5]
+{width:3;color:black;dashes:4,12;}
+
+/* С наклоном */
+way[incline][incline!=0][incline!=0%]
+{color:#b24056; width:3; opacity:1; dashes:0;}
+
+/* Ступеньки */
+way[highway=steps]
+{color:#b24056; width:3; opacity:1; dashes:1,4;}
 
 
 
@@ -44,11 +71,13 @@ way[surface=asphalt][smoothness=very_horrible],
 way[surface=asphalt][smoothness=impassable],
 way[surface=asphalt][trail_visibility=bad],
 way[surface=asphalt][trail_visibility=horrible],
-way[surface=asphalt][trail_visibility=no]
+way[surface=asphalt][trail_visibility=no],
+way[surface=asphalt][tracktype=grade4],
+way[surface=asphalt][tracktype=grade5]
 {width:4;color:white;dashes:4,12;}
 
 /* С наклоном */
-way[surface=asphalt][incline]
+way[surface=asphalt][incline][incline!=0][incline!=0%]
 {width:4;color:#eec6fa;dashes:0;}
 
 
@@ -101,6 +130,8 @@ way[surface=paved][smoothness=impassable],
 way[surface=paved][trail_visibility=bad],
 way[surface=paved][trail_visibility=horrible],
 way[surface=paved][trail_visibility=no],
+way[surface=paved][tracktype=grade4],
+way[surface=paved][tracktype=grade5],
 
 way[surface=concrete][smoothness=bad],
 way[surface=concrete][smoothness=very_bad],
@@ -110,6 +141,8 @@ way[surface=concrete][smoothness=impassable],
 way[surface=concrete][trail_visibility=bad],
 way[surface=concrete][trail_visibility=horrible],
 way[surface=concrete][trail_visibility=no],
+way[surface=concrete][tracktype=grade4],
+way[surface=concrete][tracktype=grade5],
 
 way[surface=concrete:lanes][smoothness=bad],
 way[surface=concrete:lanes][smoothness=very_bad],
@@ -119,6 +152,8 @@ way[surface=concrete:lanes][smoothness=impassable],
 way[surface=concrete:lanes][trail_visibility=bad],
 way[surface=concrete:lanes][trail_visibility=horrible],
 way[surface=concrete:lanes][trail_visibility=no],
+way[surface=concrete:lanes][tracktype=grade4],
+way[surface=concrete:lanes][tracktype=grade5],
 
 way[surface=concrete:plates][smoothness=bad],
 way[surface=concrete:plates][smoothness=very_bad],
@@ -128,6 +163,8 @@ way[surface=concrete:plates][smoothness=impassable],
 way[surface=concrete:plates][trail_visibility=bad],
 way[surface=concrete:plates][trail_visibility=horrible],
 way[surface=concrete:plates][trail_visibility=no],
+way[surface=concrete:plates][tracktype=grade4],
+way[surface=concrete:plates][tracktype=grade5],
 
 way[surface=paving_stones][smoothness=bad],
 way[surface=paving_stones][smoothness=very_bad],
@@ -137,6 +174,8 @@ way[surface=paving_stones][smoothness=impassable],
 way[surface=paving_stones][trail_visibility=bad],
 way[surface=paving_stones][trail_visibility=horrible],
 way[surface=paving_stones][trail_visibility=no],
+way[surface=paving_stones][tracktype=grade4],
+way[surface=asphpaving_stonesalt][tracktype=grade5],
 
 way[surface=sett][smoothness=bad],
 way[surface=sett][smoothness=very_bad],
@@ -146,6 +185,8 @@ way[surface=sett][smoothness=impassable],
 way[surface=sett][trail_visibility=bad],
 way[surface=sett][trail_visibility=horrible],
 way[surface=sett][trail_visibility=no],
+way[surface=sett][tracktype=grade4],
+way[surface=sett][tracktype=grade5],
 
 way[surface=unhewn_cobblestone][smoothness=bad],
 way[surface=unhewn_cobblestone][smoothness=very_bad],
@@ -155,6 +196,8 @@ way[surface=unhewn_cobblestone][smoothness=impassable],
 way[surface=unhewn_cobblestone][trail_visibility=bad],
 way[surface=unhewn_cobblestone][trail_visibility=horrible],
 way[surface=unhewn_cobblestone][trail_visibility=no],
+way[surface=unhewn_cobblestone][tracktype=grade4],
+way[surface=unhewn_cobblestone][tracktype=grade5],
 
 way[surface=cobblestone][smoothness=bad],
 way[surface=cobblestone][smoothness=very_bad],
@@ -164,6 +207,8 @@ way[surface=cobblestone][smoothness=impassable],
 way[surface=cobblestone][trail_visibility=bad],
 way[surface=cobblestone][trail_visibility=horrible],
 way[surface=cobblestone][trail_visibility=no],
+way[surface=cobblestone][tracktype=grade4],
+way[surface=cobblestone][tracktype=grade5],
 
 way[surface=metal][smoothness=bad],
 way[surface=metal][smoothness=very_bad],
@@ -172,19 +217,21 @@ way[surface=metal][smoothness=very_horrible],
 way[surface=metal][smoothness=impassable],
 way[surface=metal][trail_visibility=bad],
 way[surface=metal][trail_visibility=horrible],
-way[surface=metal][trail_visibility=no]
+way[surface=metal][trail_visibility=no],
+way[surface=metal][tracktype=grade4],
+way[surface=metal][tracktype=grade5]
 {width:4;color:#8b8b8b;dashes:4,12;}
 
 /* С наклоном */
-way[surface=paved][incline],
-way[surface=concrete][incline],
-way[surface=concrete:lanes][incline],
-way[surface=concrete:plates][incline],
-way[surface=paving_stones][incline],
-way[surface=sett][incline],
-way[surface=unhewn_cobblestone][incline],
-way[surface=cobblestone][incline],
-way[surface=metal][incline]
+way[surface=paved][incline][incline!=0][incline!=0%],
+way[surface=concrete][incline][incline!=0][incline!=0%],
+way[surface=concrete:lanes][incline][incline!=0][incline!=0%],
+way[surface=concrete:plates][incline][incline!=0][incline!=0%],
+way[surface=paving_stones][incline][incline!=0][incline!=0%],
+way[surface=sett][incline][incline!=0][incline!=0%],
+way[surface=unhewn_cobblestone][incline][incline!=0][incline!=0%],
+way[surface=cobblestone][incline][incline!=0][incline!=0%],
+way[surface=metal][incline][incline!=0][incline!=0%]
 {width:4;color:#eec6fa;dashes:0;}
 
 
@@ -231,6 +278,8 @@ way[surface=compacted][smoothness=impassable],
 way[surface=compacted][trail_visibility=bad],
 way[surface=compacted][trail_visibility=horrible],
 way[surface=compacted][trail_visibility=no],
+way[surface=compacted][tracktype=grade4],
+way[surface=compacted][tracktype=grade5],
 
 way[surface=fine_gravel][smoothness=bad],
 way[surface=fine_gravel][smoothness=very_bad],
@@ -240,6 +289,8 @@ way[surface=fine_gravel][smoothness=impassable],
 way[surface=fine_gravel][trail_visibility=bad],
 way[surface=fine_gravel][trail_visibility=horrible],
 way[surface=fine_gravel][trail_visibility=no],
+way[surface=fine_gravel][tracktype=grade4],
+way[surface=fine_gravel][tracktype=grade5],
 
 way[surface=clay][smoothness=bad],
 way[surface=clay][smoothness=very_bad],
@@ -249,6 +300,8 @@ way[surface=clay][smoothness=impassable],
 way[surface=clay][trail_visibility=bad],
 way[surface=clay][trail_visibility=horrible],
 way[surface=clay][trail_visibility=no],
+way[surface=clay][tracktype=grade4],
+way[surface=clay][tracktype=grade5],
 
 way[surface=tartan][smoothness=bad],
 way[surface=tartan][smoothness=very_bad],
@@ -258,6 +311,8 @@ way[surface=tartan][smoothness=impassable],
 way[surface=tartan][trail_visibility=bad],
 way[surface=tartan][trail_visibility=horrible],
 way[surface=tartan][trail_visibility=no],
+way[surface=tartan][tracktype=grade4],
+way[surface=tartan][tracktype=grade5],
 
 way[surface=decoturf][smoothness=bad],
 way[surface=decoturf][smoothness=very_bad],
@@ -267,6 +322,8 @@ way[surface=decoturf][smoothness=impassable],
 way[surface=decoturf][trail_visibility=bad],
 way[surface=decoturf][trail_visibility=horrible],
 way[surface=decoturf][trail_visibility=no],
+way[surface=decoturf][tracktype=grade4],
+way[surface=decoturf][tracktype=grade5],
 
 way[surface=artificial_turf][smoothness=bad],
 way[surface=artificial_turf][smoothness=very_bad],
@@ -275,16 +332,18 @@ way[surface=artificial_turf][smoothness=very_horrible],
 way[surface=artificial_turf][smoothness=impassable],
 way[surface=artificial_turf][trail_visibility=bad],
 way[surface=artificial_turf][trail_visibility=horrible],
-way[surface=artificial_turf][trail_visibility=no]
+way[surface=artificial_turf][trail_visibility=no],
+way[surface=artificial_turf][tracktype=grade4],
+way[surface=artificial_turf][tracktype=grade5]
 {width:4;color:#fffa71;dashes:4,12;}
 
 /* С наклоном */
-way[surface=compacted][incline],
-way[surface=fine_gravel][incline],
-way[surface=clay][incline],
-way[surface=tartan][incline],
-way[surface=artificial_turf][incline],
-way[surface=decoturf][incline]
+way[surface=compacted][incline][incline!=0][incline!=0%],
+way[surface=fine_gravel][incline][incline!=0][incline!=0%],
+way[surface=clay][incline][incline!=0][incline!=0%],
+way[surface=tartan][incline][incline!=0][incline!=0%],
+way[surface=artificial_turf][incline][incline!=0][incline!=0%],
+way[surface=decoturf][incline][incline!=0][incline!=0%]
 {width:4;color:#e98fa0;dashes:0;}
 
 
@@ -332,6 +391,8 @@ way[surface=gravel][smoothness=impassable],
 way[surface=gravel][trail_visibility=bad],
 way[surface=gravel][trail_visibility=horrible],
 way[surface=gravel][trail_visibility=no],
+way[surface=gravel][tracktype=grade4],
+way[surface=gravel][tracktype=grade5],
 
 way[surface=pebblestone][smoothness=bad],
 way[surface=pebblestone][smoothness=very_bad],
@@ -341,6 +402,8 @@ way[surface=pebblestone][smoothness=impassable],
 way[surface=pebblestone][trail_visibility=bad],
 way[surface=pebblestone][trail_visibility=horrible],
 way[surface=pebblestone][trail_visibility=no],
+way[surface=pebblestone][tracktype=grade4],
+way[surface=pebblestone][tracktype=grade5],
 
 way[surface=grass_paver][smoothness=bad],
 way[surface=grass_paver][smoothness=very_bad],
@@ -350,6 +413,8 @@ way[surface=grass_paver][smoothness=impassable],
 way[surface=grass_paver][trail_visibility=bad],
 way[surface=grass_paver][trail_visibility=horrible],
 way[surface=grass_paver][trail_visibility=no],
+way[surface=grass_paver][tracktype=grade4],
+way[surface=grass_paver][tracktype=grade5],
 
 way[surface=woodchips][smoothness=bad],
 way[surface=woodchips][smoothness=very_bad],
@@ -359,6 +424,8 @@ way[surface=woodchips][smoothness=impassable],
 way[surface=woodchips][trail_visibility=bad],
 way[surface=woodchips][trail_visibility=horrible],
 way[surface=woodchips][trail_visibility=no],
+way[surface=woodchips][tracktype=grade4],
+way[surface=woodchips][tracktype=grade5],
 
 way[surface=wood][smoothness=bad],
 way[surface=wood][smoothness=very_bad],
@@ -368,6 +435,8 @@ way[surface=wood][smoothness=impassable],
 way[surface=wood][trail_visibility=bad],
 way[surface=wood][trail_visibility=horrible],
 way[surface=wood][trail_visibility=no],
+way[surface=wood][tracktype=grade4],
+way[surface=wood][tracktype=grade5],
 
 way[surface=gravel_turf][smoothness=bad],
 way[surface=gravel_turf][smoothness=very_bad],
@@ -376,16 +445,18 @@ way[surface=gravel_turf][smoothness=very_horrible],
 way[surface=gravel_turf][smoothness=impassable],
 way[surface=gravel_turf][trail_visibility=bad],
 way[surface=gravel_turf][trail_visibility=horrible],
-way[surface=gravel_turf][trail_visibility=no]
+way[surface=gravel_turf][trail_visibility=no],
+way[surface=gravel_turf][tracktype=grade4],
+way[surface=gravel_turf][tracktype=grade5]
 {width:4;color:#f4664e;dashes:4,12;}
 
 /* С наклоном */
-way[surface=gravel][incline],
-way[surface=pebblestone][incline],
-way[surface=grass_paver][incline],
-way[surface=gravel_turf][incline],
-way[surface=woodchips][incline],
-way[surface=wood][incline]
+way[surface=gravel][incline][incline!=0][incline!=0%],
+way[surface=pebblestone][incline][incline!=0][incline!=0%],
+way[surface=grass_paver][incline][incline!=0][incline!=0%],
+way[surface=gravel_turf][incline][incline!=0][incline!=0%],
+way[surface=woodchips][incline][incline!=0][incline!=0%],
+way[surface=wood][incline][incline!=0][incline!=0%]
 {width:4;color:#e98fa0;dashes:0;}
 
 
@@ -434,6 +505,8 @@ way[surface=unpaved][smoothness=impassable],
 way[surface=unpaved][trail_visibility=bad],
 way[surface=unpaved][trail_visibility=horrible],
 way[surface=unpaved][trail_visibility=no],
+way[surface=unpaved][tracktype=grade4],
+way[surface=unpaved][tracktype=grade5],
 
 way[surface=ground][smoothness=bad],
 way[surface=ground][smoothness=very_bad],
@@ -443,6 +516,8 @@ way[surface=ground][smoothness=impassable],
 way[surface=ground][trail_visibility=bad],
 way[surface=ground][trail_visibility=horrible],
 way[surface=ground][trail_visibility=no],
+way[surface=ground][tracktype=grade4],
+way[surface=ground][tracktype=grade5],
 
 way[surface=earth][smoothness=bad],
 way[surface=earth][smoothness=very_bad],
@@ -452,6 +527,8 @@ way[surface=earth][smoothness=impassable],
 way[surface=earth][trail_visibility=bad],
 way[surface=earth][trail_visibility=horrible],
 way[surface=earth][trail_visibility=no],
+way[surface=earth][tracktype=grade4],
+way[surface=earth][tracktype=grade5],
 
 way[surface=sand][smoothness=bad],
 way[surface=sand][smoothness=very_bad],
@@ -461,6 +538,8 @@ way[surface=sand][smoothness=impassable],
 way[surface=sand][trail_visibility=bad],
 way[surface=sand][trail_visibility=horrible],
 way[surface=sand][trail_visibility=no],
+way[surface=sand][tracktype=grade4],
+way[surface=sand][tracktype=grade5],
 
 way[surface=snow][smoothness=bad],
 way[surface=snow][smoothness=very_bad],
@@ -470,6 +549,8 @@ way[surface=snow][smoothness=impassable],
 way[surface=snow][trail_visibility=bad],
 way[surface=snow][trail_visibility=horrible],
 way[surface=snow][trail_visibility=no],
+way[surface=snow][tracktype=grade4],
+way[surface=snow][tracktype=grade5],
 
 way[surface=ice][smoothness=bad],
 way[surface=ice][smoothness=very_bad],
@@ -479,6 +560,8 @@ way[surface=ice][smoothness=impassable],
 way[surface=ice][trail_visibility=bad],
 way[surface=ice][trail_visibility=horrible],
 way[surface=ice][trail_visibility=no],
+way[surface=ice][tracktype=grade4],
+way[surface=ice][tracktype=grade5],
 
 way[surface=salt][smoothness=bad],
 way[surface=salt][smoothness=very_bad],
@@ -487,17 +570,19 @@ way[surface=salt][smoothness=very_horrible],
 way[surface=salt][smoothness=impassable],
 way[surface=salt][trail_visibility=bad],
 way[surface=salt][trail_visibility=horrible],
-way[surface=salt][trail_visibility=no]
+way[surface=salt][trail_visibility=no],
+way[surface=salt][tracktype=grade4],
+way[surface=salt][tracktype=grade5]
 {width:3;color:#544529;dashes:4,12;}
 
 /* С наклоном */
-way[surface=unpaved][incline],
-way[surface=ground][incline],
-way[surface=earth][incline],
-way[surface=sand][incline],
-way[surface=snow][incline],
-way[surface=ice][incline],
-way[surface=salt][incline]
+way[surface=unpaved][incline][incline!=0][incline!=0%],
+way[surface=ground][incline][incline!=0][incline!=0%],
+way[surface=earth][incline][incline!=0][incline!=0%],
+way[surface=sand][incline][incline!=0][incline!=0%],
+way[surface=snow][incline][incline!=0][incline!=0%],
+way[surface=ice][incline][incline!=0][incline!=0%],
+way[surface=salt][incline][incline!=0][incline!=0%]
 {width:4;color:#b24056;dashes:0;}
 
 
@@ -531,6 +616,8 @@ way[surface=dirt][smoothness=impassable],
 way[surface=dirt][trail_visibility=bad],
 way[surface=dirt][trail_visibility=horrible],
 way[surface=dirt][trail_visibility=no],
+way[surface=dirt][tracktype=grade4],
+way[surface=dirt][tracktype=grade5],
 
 way[surface=mud][smoothness=bad],
 way[surface=mud][smoothness=very_bad],
@@ -539,12 +626,14 @@ way[surface=mud][smoothness=very_horrible],
 way[surface=mud][smoothness=impassable],
 way[surface=mud][trail_visibility=bad],
 way[surface=mud][trail_visibility=horrible],
-way[surface=mud][trail_visibility=no]
+way[surface=mud][trail_visibility=no],
+way[surface=mud][tracktype=grade4],
+way[surface=mud][tracktype=grade5]
 {width:3;color:#1c7f39;dashes:4,12;}
 
 /* С наклоном */
-way[surface=dirt][incline],
-way[surface=mud][incline]
+way[surface=dirt][incline][incline!=0][incline!=0%],
+way[surface=mud][incline][incline!=0][incline!=0%]
 {width:4;color:#b24056;dashes:0;}
 
 
