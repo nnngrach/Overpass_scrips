@@ -40,7 +40,10 @@ way[surface=metal]
 
 
 way[surface=compacted],
-way[surface=fine_gravel]
+way[surface=fine_gravel],
+way[surface=tartan],
+way[surface=artificial_turf],
+way[surface=decoturf]
 {width:4;color:#f4664e;dashes:0;}
 
 way[surface=compacted][man_made=cutline],
@@ -70,13 +73,16 @@ way[surface=wood][width>1]
 
 
 way[surface=dirt],
-way[surface=mud]
+way[surface=mud],
+way[surface=clay]
 {width:3;color:#1c7f39;dashes:0;}
 
 way[surface=dirt][man_made=cutline],
 way[surface=dirt][man_made=cutline][width>1],
 way[surface=mud][man_made=cutline],
-way[surface=mud][man_made=cutline][width>1]
+way[surface=mud][man_made=cutline][width>1],
+way[surface=clay][man_made=cutline],
+way[surface=clay][man_made=cutline][width>1]
 {width:6;color:#1c7f39;dashes:0;}
 
 
