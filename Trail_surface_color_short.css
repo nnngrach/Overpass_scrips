@@ -9,11 +9,11 @@ out body;>;out skel qt;
 {{style:
 
 way
-{color:#605f5f; width:3; opacity:1; dashes:0;}
+{color:#504d4d; width:3; opacity:1; dashes:0;}
 
 way[man_made=cutline],
 way[width>1]
-{width:6;color:#605f5f;dashes:0;}
+{width:5;color:#504d4d;dashes:0;}
 
 
 
@@ -35,19 +35,19 @@ way[surface=sett],
 way[surface=unhewn_cobblestone],
 way[surface=cobblestone],
 way[surface=metal]
-{width:4;color:#8b8b8b;dashes:0;}
+{width:4;color:#fffa71;dashes:0;}
 
 
 
 way[surface=compacted],
 way[surface=fine_gravel]
-{width:4;color:#fffa71;dashes:0;}
+{width:4;color:#f4664e;dashes:0;}
 
 way[surface=compacted][man_made=cutline],
 way[surface=fine_gravel][man_made=cutline]
 way[surface=compacted][width>1],
 way[surface=fine_gravel][width>1]
-{width:8;color:#fffa71;dashes:0;}
+{width:8;color:#f4664e;dashes:0;}
 
 
 
@@ -81,6 +81,7 @@ way[surface=mud][man_made=cutline][width>1]
 
 
 
+
 way[smoothness=bad],
 way[smoothness=very_bad],
 way[smoothness=horrible],
@@ -94,10 +95,10 @@ way[tracktype=grade5]
 {width:3;color:#605f5f;dashes:4,12;}
 
 way[incline][incline!=0][incline!=0%]
-{color:#b24056; width:3; opacity:1; dashes:0;}
+{color:#e70101; width:3; opacity:1; dashes:0;}
 
 way[highway=steps]
-{color:#b24056; width:3; opacity:1; dashes:1,4;}
+{color:black; width:3; opacity:1; dashes:1,5;}
 
 
 
