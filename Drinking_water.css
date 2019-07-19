@@ -1,0 +1,55 @@
+[bbox:{{bbox}}];
+
+( 
+    // Питьвая вода
+    node[amenity=drinking_water];
+    // Питьевые фонтанчики
+    node[man_made=drinking_fountain];
+    // Колодцы
+  node[man_made=water_well];
+    // Кран-колонка
+    node[man_made=water_tap][drinking_water=yes];
+    // Пункты наполнения цистерн
+    node[waterway=water_point];
+    // Родники
+  node[natural=spring];
+);
+
+out;>;out skel qt;
+
+
+
+{{style:
+    node[amenity=drinking_water] {
+      icon-image: url('icons/osmic/drinking-water-18@2x.png');
+      icon-width: 24;
+    }
+
+  node[man_made=drinking_fountain] {
+      icon-image: url('icons/osmic/drinking-water-18@2x.png');
+      icon-width: 24;
+    }
+
+  node[man_made=water_well] {
+      icon-image: url('icons/maki/building-24.png');
+      icon-width: 18;
+    }
+
+  node[man_made=water_tap] {
+      icon-image: url('icons/osmic/lighthouse-18@2x.png');
+      icon-width: 18;
+    }
+
+  node[waterway=water_point] {
+      icon-image: url('icons/maki/dam-24@2x.png');
+      icon-width: 18;
+    }
+
+  node[natural=spring] {
+      icon-image: url('icons/maki/water-24.png');
+      icon-width: 18;
+    }
+  
+  node {text: name;}
+}}
+
